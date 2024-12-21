@@ -25,7 +25,7 @@ const io = new Server(server, {
 
 server.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-io.on('connection', (socket) => {
+io.on('connection', async (socket) => {
   console.log('Client connected');
   
   socket.on('disconnect', () => console.log('Client disconnected'));
