@@ -1,6 +1,6 @@
 'use strict';
 import express from 'express';
-import socketIo from 'socket.io';
+import {Server} from 'socket.io';
 import { createServer } from 'http';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -16,7 +16,7 @@ app.use((req, res) => res.sendFile(INDEX, { root: __dirname }));
 
 const server = createServer(app);
 
-const io = socketIo(server, {
+const io = new Server(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
